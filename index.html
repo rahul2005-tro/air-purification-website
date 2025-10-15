@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 TevrON - Smart Air Purification System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://i.postimg.cc/YqL06gpT/TEVRON-NEW-removebg-preview.png" alt="TevrON" class="logo-icon" style="width: 48px; height: 48px;">
+                <span class="logo-text">TevrON</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#live-data">Live Data</a></li>
+                <li><a href="#map">Interactive Map</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">LIVE MONITORING SYSTEM</div>
+            <h1 class="hero-title">Smart Air Purification<br><span class="gradient-text">TevrON</span></h1>
+            <p class="hero-subtitle">Real-time IoT-powered air quality monitoring and purification network</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="live-aqi">184</div>
+                    <div class="stat-label">Current AQI</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="active-units">12</div>
+                    <div class="stat-label">Active Units</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="areas-covered">8</div>
+                    <div class="stat-label">Areas Covered</div>
+                </div>
+            </div>
+            <div class="cta-buttons">
+                <button class="btn primary glow" onclick="scrollTo('#live-data')">View Live Data</button>
+                <button class="btn secondary" onclick="scrollTo('#map')">Explore Map</button>
+            </div>
+        </div>
+        <div class="weather-widget">
+            <div class="weather-info">
+                <div class="weather-temp" id="current-temp">28°C</div>
+                <div class="weather-desc" id="weather-desc">Hazy</div>
+                <div class="weather-location">Delhi, India</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Why This Project Matters</h2>
+            <p>Every year, Delhi-NCR faces dangerously high pollution levels due to vehicular emissions, stubble burning, and industrial activity. Large monitoring stations exist — but they are too few and too expensive for localized use.</p>
+            
+            <div class="vision-box">
+                <h3>Our Vision</h3>
+                <p><em>We aim to decentralize clean-air access by combining IoT, solar power, and smart sensors into affordable, community-level solutions.</em></p>
+            </div>
+            
+            <div class="philosophy">
+                <blockquote>"Clean air should not be a privilege — it should be a right."</blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="technology">
+        <div class="container">
+            <h2>How Our System Works</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h3>Smart Sensors</h3>
+                    <p>Measure PM2.5, PM10, CO, NOx, SOx, and VOCs in real time.</p>
+                </div>
+                <div class="tech-card">
+                    <h3>AI-Based Source Detection</h3>
+                    <p>Uses ML models to identify pollution sources (traffic, stubble burning, industrial).</p>
+                </div>
+                <div class="tech-card">
+                    <h3>Adaptive Filtration</h3>
+                    <p>Intelligent HEPA + Activated Carbon filters adjust performance based on air quality data.</p>
+                </div>
+                <div class="tech-card">
+                    <h3>IoT Connectivity</h3>
+                    <p>Sends real-time air quality data to a cloud dashboard via Wi-Fi or LoRaWAN.</p>
+                </div>
+                <div class="tech-card">
+                    <h3>Renewable Power</h3>
+                    <p>Operates on solar energy with lithium-ion battery backup for off-grid use.</p>
+                </div>
+            </div>
+            <p class="tech-tagline">"Every breath counts — every sensor matters."</p>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions">
+        <div class="container">
+            <h2>Our Impact Goals</h2>
+            <div class="goals-grid">
+                <div class="goal">✅ Empower citizens with affordable localized clean-air solutions.</div>
+                <div class="goal">✅ Reduce immediate exposure to high-risk groups (children, elderly, patients).</div>
+                <div class="goal">✅ Generate granular pollution maps to identify hyperlocal sources.</div>
+                <div class="goal">✅ Develop IoT-enabled low-cost purifier + sensor units.</div>
+                <div class="goal">✅ Integrate solar and battery backup systems.</div>
+                <div class="goal">✅ Conduct field tests in high-pollution zones for performance validation.</div>
+            </div>
+            <div class="highlight-box">
+                <p><em>Our systems have already reduced PM2.5 levels by up to 25% in pilot tests at selected Delhi schools.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section id="map" class="map-section">
+        <div class="container">
+            <h2 class="section-title">Live Monitoring Network</h2>
+            <p class="section-subtitle">Real-time air quality data from our distributed sensor network across Delhi-NCR</p>
+            
+            <div class="map-controls">
+                <div class="control-group">
+                    <select id="map-layer-select" class="map-select">
+                        <option value="aqi">AQI Levels</option>
+                        <option value="pm25">PM2.5 Levels</option>
+                        <option value="pm10">PM10 Levels</option>
+                        <option value="co">CO Levels</option>
+                        <option value="nox">NOx Levels</option>
+                        <option value="sox">SOx Levels</option>
+                        <option value="vocs">VOCs Levels</option>
+                        <option value="units">Active Units</option>
+                    </select>
+                </div>
+                <div class="legend">
+                    <div class="legend-item good"><span></span>Good (0-50)</div>
+                    <div class="legend-item moderate"><span></span>Moderate (51-100)</div>
+                    <div class="legend-item unhealthy"><span></span>Unhealthy (101-200)</div>
+                    <div class="legend-item hazardous"><span></span>Hazardous (201+)</div>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <div id="interactive-map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Data Section -->
+    <section id="live-data" class="live-data">
+        <div class="container">
+            <h2 class="section-title">Live Air Quality Data</h2>
+            
+            <div class="data-grid">
+                <div class="data-card aqi-card">
+                    <div class="card-header">
+                        <h3>Real-time AQI</h3>
+                        <div class="status-indicator live"></div>
+                    </div>
+                    <div class="aqi-display">
+                        <div class="aqi-value" id="main-aqi">184</div>
+                        <div class="aqi-status unhealthy">Unhealthy</div>
+                    </div>
+                    <div class="aqi-breakdown">
+                        <div class="pollutant">
+                            <span>PM2.5</span>
+                            <span id="pm25-value">95 µg/m³</span>
+                        </div>
+                        <div class="pollutant">
+                            <span>PM10</span>
+                            <span id="pm10-value">142 µg/m³</span>
+                        </div>
+                        <div class="pollutant">
+                            <span>CO</span>
+                            <span id="co-value">2.1 mg/m³</span>
+                        </div>
+                        <div class="pollutant">
+                            <span>NOx</span>
+                            <span id="nox-value">68 µg/m³</span>
+                        </div>
+                        <div class="pollutant">
+                            <span>SOx</span>
+                            <span id="sox-value">15 µg/m³</span>
+                        </div>
+                        <div class="pollutant">
+                            <span>VOCs</span>
+                            <span id="vocs-value">45 µg/m³</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-card weather-card">
+                    <div class="card-header">
+                        <h3>Weather Conditions</h3>
+                        <div class="weather-icon" id="weather-icon">🌫️</div>
+                    </div>
+                    <div class="weather-data">
+                        <div class="temp-display" id="temp-display">28°C</div>
+                        <div class="weather-details">
+                            <div class="detail">
+                                <span>Humidity</span>
+                                <span id="humidity">72%</span>
+                            </div>
+                            <div class="detail">
+                                <span>Wind Speed</span>
+                                <span id="wind-speed">8 km/h</span>
+                            </div>
+                            <div class="detail">
+                                <span>Visibility</span>
+                                <span id="visibility">2.5 km</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-card units-card">
+                    <div class="card-header">
+                        <h3>System Status</h3>
+                        <div class="status-indicator active"></div>
+                    </div>
+                    <div class="units-stats">
+                        <div class="unit-stat">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Active Units</div>
+                        </div>
+                        <div class="unit-stat">
+                            <div class="stat-number">85%</div>
+                            <div class="stat-label">Solar Power</div>
+                        </div>
+                        <div class="unit-stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Monitoring</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2>Team & Acknowledgments</h2>
+            <div class="team-table">
+                <div class="team-row">
+                    <div class="role">Project Lead</div>
+                    <div class="name"><strong>Rahul G</strong></div>
+                </div>
+                <div class="team-row">
+                    <div class="role">Institution</div>
+                    <div class="name"><strong>Sri Krishna College of Engineering and Technology, Coimbatore</strong></div>
+                </div>
+                <div class="team-row">
+                    <div class="role">Mentor</div>
+                    <div class="name"><strong>Ramachandran N</strong></div>
+                </div>
+
+                <div class="team-row">
+                    <div class="role">Supported By</div>
+                    <div class="name">"Atmanirbhar Bharat" CleanTech Initiative</div>
+                </div>
+            </div>
+            <div class="quote-box">
+                <blockquote><em>"Innovation meets sustainability — engineering a breath of fresh air for the future."</em></blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Join TevrON's Mission for Clean Air</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message / Collaboration Idea" required></textarea>
+                <div class="form-buttons">
+                    <button type="submit" class="btn primary">Send Message</button>
+                    <button type="button" class="btn secondary">Collaborate for Clean Air</button>
+                </div>
+            </form>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/rahul-gauthaman" target="_blank">🌐 LinkedIn</a>
+                <a href="mailto:rahul.jet10@gmail.com">📧 rahul.jet10@gmail.com</a>
+                <span>📍 Delhi-NCR</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 <em>TevrON - Low-Cost Smart Air Purification Project</em> | Powered by <strong>Solar Energy + IoT Intelligence</strong> | "Breathe Smart. Live Pure."</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
