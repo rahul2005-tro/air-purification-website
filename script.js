@@ -189,6 +189,17 @@ async function updateWeatherData() {
 
 // Event listeners
 function setupEventListeners() {
+    // CTA buttons
+    const viewDataBtn = document.querySelector('button[onclick="scrollTo(\'#live-data\')"]');
+    const exploreMapBtn = document.querySelector('button[onclick="scrollTo(\'#map\')"]');
+    
+    if (viewDataBtn) {
+        viewDataBtn.addEventListener('click', () => scrollTo('#live-data'));
+    }
+    if (exploreMapBtn) {
+        exploreMapBtn.addEventListener('click', () => scrollTo('#map'));
+    }
+    
     // Map layer control
     const mapLayerSelect = document.getElementById('map-layer-select');
     if (mapLayerSelect) {
@@ -196,8 +207,6 @@ function setupEventListeners() {
             updateMapLayer(this.value);
         });
     }
-    
-
     
     // Form submission
     const contactForm = document.querySelector('.contact-form');

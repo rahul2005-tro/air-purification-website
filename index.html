@@ -20,13 +20,11 @@
                 <span class="logo-text">TevrON</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#live-data">Live Data</a></li>
-                <li><a href="#map">Interactive Map</a></li>
+                <li><a href="livedata.html">Live Data</a></li>
+                <li><a href="map.html">Interactive Map</a></li>
                 <li><a href="analytics.html">Analytics</a></li>
-
                 <li><a href="reports.html">Reports</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -56,8 +54,8 @@
                 </div>
             </div>
             <div class="cta-buttons">
-                <button class="btn primary glow" onclick="scrollTo('#live-data')">View Live Data</button>
-                <button class="btn secondary" onclick="scrollTo('#map')">Explore Map</button>
+                <button class="btn primary glow" onclick="window.location.href='livedata.html'">View Live Data</button>
+                <button class="btn secondary" onclick="window.location.href='map.html'">Explore Map</button>
             </div>
         </div>
         <div class="weather-widget">
@@ -134,129 +132,9 @@
         </div>
     </section>
 
-    <!-- Interactive Map Section -->
-    <section id="map" class="map-section">
-        <div class="container">
-            <h2 class="section-title">Live Monitoring Network</h2>
-            <p class="section-subtitle">Real-time air quality data from our distributed sensor network across Delhi-NCR</p>
-            
-            <div class="map-controls">
-                <div class="control-group">
-                    <select id="map-layer-select" class="map-select">
-                        <option value="aqi">AQI Levels</option>
-                        <option value="pm25">PM2.5 Levels</option>
-                        <option value="pm10">PM10 Levels</option>
-                        <option value="co">CO Levels</option>
-                        <option value="nox">NOx Levels</option>
-                        <option value="sox">SOx Levels</option>
-                        <option value="vocs">VOCs Levels</option>
-                        <option value="units">Active Units</option>
-                    </select>
-                </div>
-                <div class="legend">
-                    <div class="legend-item good"><span></span>Good (0-50)</div>
-                    <div class="legend-item moderate"><span></span>Moderate (51-100)</div>
-                    <div class="legend-item unhealthy"><span></span>Unhealthy (101-200)</div>
-                    <div class="legend-item hazardous"><span></span>Hazardous (201+)</div>
-                </div>
-            </div>
-            
-            <div class="map-container">
-                <div id="interactive-map"></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Live Data Section -->
-    <section id="live-data" class="live-data">
-        <div class="container">
-            <h2 class="section-title">Live Air Quality Data</h2>
-            
-            <div class="data-grid">
-                <div class="data-card aqi-card">
-                    <div class="card-header">
-                        <h3>Real-time AQI</h3>
-                        <div class="status-indicator live"></div>
-                    </div>
-                    <div class="aqi-display">
-                        <div class="aqi-value" id="main-aqi">184</div>
-                        <div class="aqi-status unhealthy">Unhealthy</div>
-                    </div>
-                    <div class="aqi-breakdown">
-                        <div class="pollutant">
-                            <span>PM2.5</span>
-                            <span id="pm25-value">95 µg/m³</span>
-                        </div>
-                        <div class="pollutant">
-                            <span>PM10</span>
-                            <span id="pm10-value">142 µg/m³</span>
-                        </div>
-                        <div class="pollutant">
-                            <span>CO</span>
-                            <span id="co-value">2.1 mg/m³</span>
-                        </div>
-                        <div class="pollutant">
-                            <span>NOx</span>
-                            <span id="nox-value">68 µg/m³</span>
-                        </div>
-                        <div class="pollutant">
-                            <span>SOx</span>
-                            <span id="sox-value">15 µg/m³</span>
-                        </div>
-                        <div class="pollutant">
-                            <span>VOCs</span>
-                            <span id="vocs-value">45 µg/m³</span>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="data-card weather-card">
-                    <div class="card-header">
-                        <h3>Weather Conditions</h3>
-                        <div class="weather-icon" id="weather-icon">🌫️</div>
-                    </div>
-                    <div class="weather-data">
-                        <div class="temp-display" id="temp-display">28°C</div>
-                        <div class="weather-details">
-                            <div class="detail">
-                                <span>Humidity</span>
-                                <span id="humidity">72%</span>
-                            </div>
-                            <div class="detail">
-                                <span>Wind Speed</span>
-                                <span id="wind-speed">8 km/h</span>
-                            </div>
-                            <div class="detail">
-                                <span>Visibility</span>
-                                <span id="visibility">2.5 km</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="data-card units-card">
-                    <div class="card-header">
-                        <h3>System Status</h3>
-                        <div class="status-indicator active"></div>
-                    </div>
-                    <div class="units-stats">
-                        <div class="unit-stat">
-                            <div class="stat-number">12</div>
-                            <div class="stat-label">Active Units</div>
-                        </div>
-                        <div class="unit-stat">
-                            <div class="stat-number">85%</div>
-                            <div class="stat-label">Solar Power</div>
-                        </div>
-                        <div class="unit-stat">
-                            <div class="stat-number">24/7</div>
-                            <div class="stat-label">Monitoring</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
 
@@ -291,26 +169,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Join TevrON's Mission for Clean Air</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message / Collaboration Idea" required></textarea>
-                <div class="form-buttons">
-                    <button type="submit" class="btn primary">Send Message</button>
-                    <button type="button" class="btn secondary">Collaborate for Clean Air</button>
-                </div>
-            </form>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/rahul-gauthaman" target="_blank">🌐 LinkedIn</a>
-                <a href="mailto:rahul.jet10@gmail.com">📧 rahul.jet10@gmail.com</a>
-                <span>📍 Delhi-NCR</span>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer class="footer">
