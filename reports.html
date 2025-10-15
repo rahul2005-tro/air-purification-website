@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Reports & Alerts - TevrON</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="reports-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://i.postimg.cc/YqL06gpT/TEVRON-NEW-removebg-preview.png" alt="TevrON" class="logo-icon" style="width: 48px; height: 48px;">
+                <span class="logo-text">TevrON</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="livedata.html">Live Data</a></li>
+                <li><a href="map.html">Interactive Map</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="reports.html" class="active">Reports</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Alerts Section -->
+    <section class="alerts-section" style="padding-top: 120px;">
+        <div class="container">
+            <h2 class="section-title">Air Quality Alerts & Health Dashboard</h2>
+            
+            <div class="main-dashboard">
+                <div class="pollution-map-card">
+                    <div class="card-header">
+                        <h3>🗺️ Live Pollution Zones</h3>
+                        <div class="status-indicators">
+                            <div class="indicator critical">🔴 Critical</div>
+                            <div class="indicator warning">🟡 Warning</div>
+                            <div class="indicator moderate">🟢 Moderate</div>
+                        </div>
+                    </div>
+                    <div class="pollution-map">
+                        <div class="zone-marker critical-zone" style="top: 25%; left: 65%;">
+                            <div class="zone-pulse"></div>
+                            <div class="zone-info">
+                                <div class="zone-name">Ghaziabad</div>
+                                <div class="zone-aqi">275</div>
+                            </div>
+                        </div>
+                        <div class="zone-marker warning-zone" style="top: 55%; left: 25%;">
+                            <div class="zone-pulse"></div>
+                            <div class="zone-info">
+                                <div class="zone-name">Gurgaon</div>
+                                <div class="zone-aqi">220</div>
+                            </div>
+                        </div>
+                        <div class="zone-marker moderate-zone" style="top: 45%; left: 45%;">
+                            <div class="zone-pulse"></div>
+                            <div class="zone-info">
+                                <div class="zone-name">Delhi</div>
+                                <div class="zone-aqi">168</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="health-risk-card">
+                    <div class="card-header">
+                        <h3>🏥 Health Risk Assessment</h3>
+                        <div class="risk-level critical">HIGH RISK</div>
+                    </div>
+                    <div class="risk-meter">
+                        <div class="meter-container">
+                            <div class="meter-fill" style="width: 85%;"></div>
+                        </div>
+                        <span class="meter-text">Risk Level: 85%</span>
+                    </div>
+                    <div class="affected-groups">
+                        <div class="group-item critical">
+                            <span class="group-emoji">👶</span>
+                            <span class="group-name">Children</span>
+                        </div>
+                        <div class="group-item critical">
+                            <span class="group-emoji">🫁</span>
+                            <span class="group-name">Asthma</span>
+                        </div>
+                        <div class="group-item warning">
+                            <span class="group-emoji">👴</span>
+                            <span class="group-name">Elderly</span>
+                        </div>
+                        <div class="group-item moderate">
+                            <span class="group-emoji">👥</span>
+                            <span class="group-name">General</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="protection-guidelines">
+                <h3>🛡️ Protection Guidelines</h3>
+                <div class="guidelines-grid">
+                    <div class="guideline-item required">
+                        <div class="guideline-icon">😷</div>
+                        <div class="guideline-text">N95 Masks Required</div>
+                        <div class="guideline-status">MANDATORY</div>
+                    </div>
+                    <div class="guideline-item warning">
+                        <div class="guideline-icon">🏠</div>
+                        <div class="guideline-text">Stay Indoors</div>
+                        <div class="guideline-status">6-10 AM</div>
+                    </div>
+                    <div class="guideline-item active">
+                        <div class="guideline-icon">💨</div>
+                        <div class="guideline-text">Air Purifiers</div>
+                        <div class="guideline-status">ACTIVE</div>
+                    </div>
+                    <div class="guideline-item warning">
+                        <div class="guideline-icon">🚫</div>
+                        <div class="guideline-text">No Outdoor Exercise</div>
+                        <div class="guideline-status">AVOID</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Peak Hours Analysis -->
+    <section class="peak-hours">
+        <div class="container">
+            <h2 class="section-title">Peak Hour Analysis & AI Collaboration</h2>
+            
+            <div class="analysis-grid">
+                <div class="peak-timeline-card">
+                    <h3>⏰ Peak Pollution Timeline</h3>
+                    <div class="timeline">
+                        <div class="timeline-item critical">
+                            <div class="time-icon">🌅</div>
+                            <div class="time-details">
+                                <div class="time-period">6:00 - 10:00 AM</div>
+                                <div class="time-status critical">CRITICAL</div>
+                                <div class="time-aqi">AQI: 250-300</div>
+                            </div>
+                            <div class="time-bar critical-bar"></div>
+                        </div>
+                        <div class="timeline-item warning">
+                            <div class="time-icon">🌆</div>
+                            <div class="time-details">
+                                <div class="time-period">7:00 - 9:00 PM</div>
+                                <div class="time-status warning">VERY HIGH</div>
+                                <div class="time-aqi">AQI: 200-250</div>
+                            </div>
+                            <div class="time-bar warning-bar"></div>
+                        </div>
+                        <div class="timeline-item safe">
+                            <div class="time-icon">🌙</div>
+                            <div class="time-details">
+                                <div class="time-period">11:00 PM - 2:00 AM</div>
+                                <div class="time-status safe">MODERATE</div>
+                                <div class="time-aqi">AQI: 150-180</div>
+                            </div>
+                            <div class="time-bar safe-bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ai-network-card">
+                    <h3>🤖 AI Collaboration Network</h3>
+                    <div class="ai-metrics">
+                        <div class="metric-item">
+                            <div class="metric-icon">⚖️</div>
+                            <div class="metric-info">
+                                <div class="metric-value">92%</div>
+                                <div class="metric-label">Load Balance</div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon">🔮</div>
+                            <div class="metric-info">
+                                <div class="metric-value">30min</div>
+                                <div class="metric-label">Prediction</div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon">🔗</div>
+                            <div class="metric-info">
+                                <div class="metric-value">8/8</div>
+                                <div class="metric-label">Units Online</div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon">☀️</div>
+                            <div class="metric-info">
+                                <div class="metric-value">85%</div>
+                                <div class="metric-label">Solar Share</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="network-diagram">
+                        <div class="central-node">
+                            <div class="node-icon">🧠</div>
+                            <div class="node-label">AI Core</div>
+                        </div>
+                        <div class="connected-units">
+                            <div class="unit-node">🏭</div>
+                            <div class="unit-node">🏭</div>
+                            <div class="unit-node">🏭</div>
+                            <div class="unit-node">🏭</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="efficiency-chart-container">
+                <h3>📊 AI Collaboration Efficiency</h3>
+                <canvas id="efficiencyChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Generation -->
+    <section class="reports">
+        <div class="container">
+            <h2 class="section-title">Generate Custom Reports</h2>
+            
+            <div class="report-controls">
+                <div class="control-panel">
+                    <div class="control-group">
+                        <label>Report Type</label>
+                        <select id="report-type">
+                            <option value="health">Health Advisory Report</option>
+                            <option value="daily">Daily Air Quality Summary</option>
+                            <option value="weekly">Weekly Trend Analysis</option>
+                            <option value="peak">Peak Hours Analysis</option>
+                            <option value="ai">AI Collaboration Report</option>
+                            <option value="alerts">Alerts & Warnings Log</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label>Location</label>
+                        <select id="report-location">
+                            <option value="all">All Locations</option>
+                            <option value="cp">Connaught Place</option>
+                            <option value="gurgaon">Gurgaon Sector 45</option>
+                            <option value="noida">Noida Phase II</option>
+                            <option value="ghaziabad">Ghaziabad Central</option>
+                            <option value="dwarka">Dwarka Sec 21</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label>Date Range</label>
+                        <div class="date-inputs">
+                            <input type="date" id="start-date" value="2025-10-01">
+                            <input type="date" id="end-date" value="2025-10-15">
+                        </div>
+                    </div>
+                    
+                    <button class="btn primary" onclick="generateReport()">Generate Report</button>
+                    <button class="btn secondary" onclick="downloadPDF()">Download PDF</button>
+                </div>
+            </div>
+            
+            <div class="report-preview" id="report-preview">
+                <div class="report-header">
+                    <h3>📋 Air Quality & Health Report</h3>
+                    <div class="report-date" id="report-date">Generated on: <span></span></div>
+                </div>
+                
+                <div class="report-summary">
+                    <div class="summary-card">
+                        <h4>Average AQI</h4>
+                        <div class="summary-value" id="avg-aqi">198</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Hazard Hours</h4>
+                        <div class="summary-value" id="hazard-hours">8/24</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>AI Efficiency</h4>
+                        <div class="summary-value" id="ai-efficiency">92%</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Health Alerts</h4>
+                        <div class="summary-value" id="health-alerts">12</div>
+                    </div>
+                </div>
+                
+                <div class="report-chart">
+                    <canvas id="reportChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 <em>TevrON - Low-Cost Smart Air Purification Project</em> | Powered by <strong>Solar Energy + IoT Intelligence</strong> | "Breathe Smart. Live Pure."</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="reports.js"></script>
+</body>
+</html>
